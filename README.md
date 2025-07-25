@@ -35,7 +35,7 @@ This is a mini job board application built using the MERN stack (MongoDB, Expres
 
 2. Install dependencies:
    ```bash
-   npm install --legacy-peer-deps
+   npm install
    ```
 
 3. Start the development server:
@@ -52,7 +52,7 @@ This is a mini job board application built using the MERN stack (MongoDB, Expres
 
 2. Install dependencies:
    ```bash
-   npm install --legacy-peer-deps
+   npm install
    ```
 
 3. Start the server:

@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { TailSpin } from "react-loader-spinner";
-import DataTable from "react-data-table-component";
+import React, { useEffect, useState } from 'react';
+import { TailSpin } from 'react-loader-spinner';
+import DataTable from 'react-data-table-component';
 
 const HomePage = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/jobs")
+    fetch(process.env.REACT_APP_API_URL)
       .then((response) => response.json())
       .then((data) => {
         setJobs(data);
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching jobs:", error);
+        console.error('Error fetching jobs:', error);
         setLoading(false);
       });
   }, []);
@@ -23,32 +23,32 @@ const HomePage = () => {
   const filteredJobs = jobs.filter(
     (job) =>
       job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      job.location.toLowerCase().includes(searchTerm.toLowerCase()),
+      job.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const columns = [
     {
-      name: "Title",
+      name: 'Title',
       selector: (row) => row.title,
       sortable: true,
     },
     {
-      name: "Company",
+      name: 'Company',
       selector: (row) => row.company,
       sortable: true,
     },
     {
-      name: "Location",
+      name: 'Location',
       selector: (row) => row.location,
       sortable: true,
     },
     {
-      name: "Type",
+      name: 'Type',
       selector: (row) => row.type,
       sortable: true,
     },
     {
-      name: "Actions",
+      name: 'Actions',
       cell: (row) => (
         <a href={`/job/${row._id}`} className="btn btn-secondary">
           View Details

@@ -1,4 +1,4 @@
-const Job = require("../models/Job");
+import Job from '../models/Job.js';
 
 const getJobs = async (req, res) => {
   try {
@@ -12,7 +12,7 @@ const getJobs = async (req, res) => {
 const getJobById = async (req, res) => {
   try {
     const job = await Job.findById(req.params.id);
-    if (!job) return res.status(404).json({ message: "Job not found" });
+    if (!job) return res.status(404).json({ message: 'Job not found' });
     res.json(job);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -31,4 +31,4 @@ const addJob = async (req, res) => {
   }
 };
 
-module.exports = { getJobs, getJobById, addJob };
+export { getJobs, getJobById, addJob };

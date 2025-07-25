@@ -1,7 +1,10 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const jobRoutes = require("./src/routes/jobRoutes");
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import jobRoutes from './src/routes/jobRoutes.js';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -14,9 +17,9 @@ app.use((req, res, next) => {
   next();
 });
 
-mongoose.connect("mongodb://localhost:27017/jobboard");
+mongoose.connect(process.env.MONGODB_URI);
 
-app.use("/api/jobs", jobRoutes);
+app.use('/api/jobs', jobRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

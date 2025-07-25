@@ -1,23 +1,11 @@
-const { body, validationResult } = require("express-validator");
+import { body, validationResult } from 'express-validator';
 
 const validateJob = [
-  body("title").isString().trim().notEmpty().withMessage("Title is required"),
-  body("company")
-    .isString()
-    .trim()
-    .notEmpty()
-    .withMessage("Company is required"),
-  body("type").isString().trim().notEmpty().withMessage("Type is required"),
-  body("location")
-    .isString()
-    .trim()
-    .notEmpty()
-    .withMessage("Location is required"),
-  body("description")
-    .isString()
-    .trim()
-    .notEmpty()
-    .withMessage("Description is required"),
+  body('title').isString().trim().notEmpty().withMessage('Title is required'),
+  body('company').isString().trim().notEmpty().withMessage('Company is required'),
+  body('type').isString().trim().notEmpty().withMessage('Type is required'),
+  body('location').isString().trim().notEmpty().withMessage('Location is required'),
+  body('description').isString().trim().notEmpty().withMessage('Description is required'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -27,4 +15,4 @@ const validateJob = [
   },
 ];
 
-module.exports = { validateJob };
+export { validateJob };

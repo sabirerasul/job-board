@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TailSpin } from 'react-loader-spinner';
+import ReactLoading from 'react-loading';
 import DataTable from 'react-data-table-component';
 
 const HomePage = () => {
@@ -74,7 +74,7 @@ const HomePage = () => {
       />
       {loading ? (
         <div className="d-flex justify-content-center">
-          <TailSpin color="#007bff" height={80} width={80} />
+          <ReactLoading type="spin" color="#007bff" height={80} width={80} />
         </div>
       ) : (
         <DataTable

@@ -9,7 +9,7 @@ This is a mini job board application built using the MERN stack (MongoDB, Expres
   - React Router
   - Bootstrap
   - SweetAlert2
-  - React Loader Spinner
+  - Custom Loader Spinner
   - React Data Table Component
 
 - **Backend:**
@@ -40,7 +40,7 @@ This is a mini job board application built using the MERN stack (MongoDB, Expres
 
 3. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ### Backend Setup
@@ -65,7 +65,7 @@ This is a mini job board application built using the MERN stack (MongoDB, Expres
 1. Ensure MongoDB is running.
 2. Start the backend server.
 3. Start the frontend development server.
-4. Open your browser and navigate to `http://localhost:3000` to view the application.
+4. Open your browser and navigate to `http://localhost:5173` to view the application.
 
 ## Project Structure
 

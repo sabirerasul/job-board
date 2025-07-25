@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ReactLoading from 'react-loading';
+import Loading2 from '../components/Loading2';
 import DataTable from 'react-data-table-component';
 
 const HomePage = () => {
@@ -7,8 +7,10 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
+  console.log(import.meta.env.VITE_API_URL)
+
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL)
+    fetch(import.meta.env.VITE_API_URL)
       .then((response) => response.json())
       .then((data) => {
         setJobs(data);
@@ -73,9 +75,7 @@ const HomePage = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       {loading ? (
-        <div className="d-flex justify-content-center">
-          <ReactLoading type="spin" color="#007bff" height={80} width={80} />
-        </div>
+        <Loading2 />
       ) : (
         <DataTable
           columns={columns}

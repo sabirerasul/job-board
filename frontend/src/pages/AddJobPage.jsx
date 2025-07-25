@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const AddJobPage = () => {
   const handleAddJob = (job) => {
-    fetch(process.env.REACT_APP_API_URL, {
+    fetch(import.meta.env.VITE_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
